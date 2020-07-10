@@ -14,6 +14,7 @@ namespace FirstAttempt.IdentityServer
             {
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
+                new IdentityResources.Email()
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
@@ -39,7 +40,7 @@ namespace FirstAttempt.IdentityServer
                     RedirectUris = {"https://localhost:5002/authentication/login-callback"},
                     PostLogoutRedirectUris = {"https://localhost:5002/"},
 
-                    AllowedScopes = {"openid", "profile", "scope2"}
+                    AllowedScopes = {"openid", "profile", "scope2", "email"}
                 },
             };
     }
