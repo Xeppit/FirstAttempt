@@ -20,8 +20,7 @@ namespace FirstAttempt.IdentityServer
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("scope1"),
-                new ApiScope("scope2"),
+                new ApiScope("testapi"),
             };
 
         public static IEnumerable<Client> Clients =>
@@ -40,7 +39,7 @@ namespace FirstAttempt.IdentityServer
                     RedirectUris = {"https://localhost:5002/authentication/login-callback"},
                     PostLogoutRedirectUris = {"https://localhost:5002/"},
 
-                    AllowedScopes = {"openid", "profile", "scope2", "email"}
+                    AllowedScopes = {"openid", "profile", "email", "testapi" }
                 },
             };
     }
