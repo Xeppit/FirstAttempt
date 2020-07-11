@@ -17,10 +17,11 @@ namespace FirstAttempt.Blazor
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
-            
+
             builder.Services.AddOidcAuthentication(options =>
             {
                 builder.Configuration.Bind("oidc", options.ProviderOptions);
+                options.UserOptions.RoleClaim = "role";
             });
 
             builder.Services.AddHttpClient("api")

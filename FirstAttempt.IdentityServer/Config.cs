@@ -4,6 +4,7 @@
 
 using IdentityServer4.Models;
 using System.Collections.Generic;
+using IdentityModel;
 
 namespace FirstAttempt.IdentityServer
 {
@@ -13,14 +14,17 @@ namespace FirstAttempt.IdentityServer
             new IdentityResource[]
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
-                new IdentityResources.Email()
+                //new IdentityResources.Profile(),
+                //overridden below
+                new CustomIdentityResourcesProfile(),
+                new IdentityResources.Email(),
+                
             };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("testapi"),
+                new ApiScope("testapi", new[] { JwtClaimTypes.Role }),
             };
 
         public static IEnumerable<Client> Clients =>

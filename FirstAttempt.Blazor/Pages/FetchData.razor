@@ -6,7 +6,12 @@
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
+<AuthorizeView Roles="Admin">
+    <Authorized>
+        You can only see this if you're an admin or superuser.
+    </Authorized>
 
+</AuthorizeView>
 @if (forecasts == null)
 {
     <p><em>Loading...</em></p>
